@@ -38,7 +38,7 @@ const userSchema = new Schema({
 		type: String,
 		index: true,
 		trim: true,
-    required: true
+	required: true
 	},
 	services: {
 		facebook: String

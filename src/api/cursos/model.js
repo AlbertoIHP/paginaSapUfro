@@ -3,7 +3,7 @@ import mongoose, { Schema } from 'mongoose'
 const cursosSchema = new Schema({
 	name: {
 		type: String,
-	unique: true,
+	 unique: true,
 	required: true
 	},
 	description: {
@@ -14,6 +14,10 @@ const cursosSchema = new Schema({
 		type: String,
 	required: true
 	},
+  user: {
+    type: String,
+    required: true
+  },
   place: {
 	type: String,
 	required: true
@@ -30,7 +34,7 @@ cursosSchema.methods = {
 			name: this.name,
 			description: this.description,
 			date: this.date,
-	    place: this.place,
+		  place: this.place,
 			createdAt: this.createdAt,
 			updatedAt: this.updatedAt
 		}
