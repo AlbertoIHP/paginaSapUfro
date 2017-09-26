@@ -1,0 +1,56 @@
+<div class="container" ng-controller="loginController">
+<div class="ui middle aligned center aligned grid">
+	<div class="column">
+		<h2 class="ui teal image header">
+			<img src="http://www.ufro.cl/index.php/normas-corporativas/13-logo-ufro-transparente-png-1/file" class="image">
+			<div class="content">
+				¡Bienvenido a SAP UFRO!
+			</div>
+		</h2>
+
+			<div class="ui stacked segment ui large form">
+
+				<div class="field">
+					<div class="ui left icon input">
+						<i class="user icon"></i>
+						<input ng-model="login.username" type="text" name="email" placeholder="Ingrese su matricula">
+					</div>
+				</div>
+
+				<div class="field">
+					<div class="ui left icon input">
+						<i class="lock icon"></i>
+						<input ng-model="login.password" type="password" name="password" placeholder="Ingrese su contraseña">
+					</div>
+				</div>
+				<div ng-click="iniciarSesion()" class="ui fluid large teal submit button">Iniciar Sesion</div>
+			</div>
+
+
+
+
+		<div class="ui message">
+			¿Eres nuevo? <a href="#">Registrate!</a>
+		</div>
+	</div>
+</div>
+
+
+	<style type="text/css">
+		body {
+			background-color: #DADADA;
+		}
+		body > .grid {
+			height: 100%;
+		}
+		.image {
+			margin-top: -100px;
+		}
+		.column {
+			max-width: 450px;
+		}
+	</style>
+
+
+</div>
+
