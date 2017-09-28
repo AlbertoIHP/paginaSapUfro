@@ -44,13 +44,13 @@
 
 
 	<div id="cargando" class="ui icon message hidden">
-  	<i class="notched circle loading icon"></i>
-  	<div class="content">
-  		<div class="header">
-  			¡Un segundo!
-  		</div>
-  		<p>Estamos comprobando tus credenciales.</p>
-  	</div>
+	<i class="notched circle loading icon"></i>
+	<div class="content">
+		<div class="header">
+			¡Un segundo!
+		</div>
+		<p>Estamos comprobando tus credenciales.</p>
+	</div>
   </div>
 
 
@@ -131,20 +131,13 @@
 				</div>
 
 
-				<div class="ui grid" style="width: 100%">
-					<div class="sixteen wide column" style="width: 100%">
-
-						<div class="ui transparent input" style="width: 100%;" >
-			  <select style="width: 100% !important" ng-model="nuevoUsuario.profession" class="ui dropdown ">
-				<option value="">Carrera</option>
-				<option value="Ingenieria Civil Industrial M. Bioprocesos">Ingenieria Civil Industrial M. Bioprocesos</option>
-				<option value="Ingenieria Civil Industrial M. Mecanica">Ingenieria Civil Industrial M. Mecanica</option>
-				<option value="Ingenieria Civil Industrial M. Informatica">Ingenieria Civil Industrial M. Informatica</option>
-			  </select>
-						</div>
-
-					</div>
-				</div>
+        <div class="ui grid">
+          <div class="sixteen wide column">
+            <div class="ui transparent input">
+              <input ng-model="nuevoUsuario.profession" required style="width: 100%; color: #d4d4d5 !important" type="text" placeholder="Carrera">
+            </div>
+          </div>
+        </div>
 
 			 <div class="ui grid">
 					<div class="sixteen wide column">
