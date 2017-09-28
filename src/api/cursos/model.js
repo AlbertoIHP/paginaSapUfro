@@ -14,13 +14,12 @@ const cursosSchema = new Schema({
 		type: String,
 	required: true
 	},
-  user: {
-    type: String,
-    required: true
-  },
   place: {
 	type: String,
 	required: true
+  },
+  activated: {
+    type: Boolean
   }
 }, {
 	timestamps: true
@@ -35,6 +34,7 @@ cursosSchema.methods = {
 			description: this.description,
 			date: this.date,
 		  place: this.place,
+      activated: this.activated,
 			createdAt: this.createdAt,
 			updatedAt: this.updatedAt
 		}

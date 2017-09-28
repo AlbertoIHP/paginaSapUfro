@@ -131,10 +131,10 @@
   },
   {
     "type": "post",
-    "url": "/cuadernos",
-    "title": "Create cuadernos",
-    "name": "CreateCuadernos",
-    "group": "Cuadernos",
+    "url": "/cursos",
+    "title": "Create cursos",
+    "name": "CreateCursos",
+    "group": "Cursos",
     "permission": [
       {
         "name": "user",
@@ -155,14 +155,26 @@
           {
             "group": "Parameter",
             "optional": false,
-            "field": "nombre",
-            "description": "<p>Cuadernos's nombre.</p>"
+            "field": "name",
+            "description": "<p>Cursos's name.</p>"
           },
           {
             "group": "Parameter",
             "optional": false,
-            "field": "tipo",
-            "description": "<p>Cuadernos's tipo.</p>"
+            "field": "description",
+            "description": "<p>Cursos's description.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Cursos's date.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "user",
+            "description": "<p>Cursos's user.</p>"
           }
         ]
       }
@@ -174,8 +186,8 @@
             "group": "Success 200",
             "type": "Object",
             "optional": false,
-            "field": "cuadernos",
-            "description": "<p>Cuadernos's data.</p>"
+            "field": "cursos",
+            "description": "<p>Cursos's data.</p>"
           }
         ]
       }
@@ -194,7 +206,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "404",
-            "description": "<p>Cuadernos not found.</p>"
+            "description": "<p>Cursos not found.</p>"
           },
           {
             "group": "Error 4xx",
@@ -206,15 +218,15 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/cuadernos/index.js",
-    "groupTitle": "Cuadernos"
+    "filename": "src/api/cursos/index.js",
+    "groupTitle": "Cursos"
   },
   {
     "type": "delete",
-    "url": "/cuadernos/:id",
-    "title": "Delete cuadernos",
-    "name": "DeleteCuadernos",
-    "group": "Cuadernos",
+    "url": "/cursos/:id",
+    "title": "Delete cursos",
+    "name": "DeleteCursos",
+    "group": "Cursos",
     "permission": [
       {
         "name": "user",
@@ -254,7 +266,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "404",
-            "description": "<p>Cuadernos not found.</p>"
+            "description": "<p>Cursos not found.</p>"
           },
           {
             "group": "Error 4xx",
@@ -266,15 +278,15 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/cuadernos/index.js",
-    "groupTitle": "Cuadernos"
+    "filename": "src/api/cursos/index.js",
+    "groupTitle": "Cursos"
   },
   {
     "type": "get",
-    "url": "/cuadernos",
-    "title": "Retrieve cuadernos",
-    "name": "RetrieveCuadernos",
-    "group": "Cuadernos",
+    "url": "/cursos",
+    "title": "Retrieve cursos",
+    "name": "RetrieveCursos",
+    "group": "Cursos",
     "success": {
       "fields": {
         "Success 200": [
@@ -282,8 +294,8 @@
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "cuadernos",
-            "description": "<p>List of cuadernos.</p>"
+            "field": "cursos",
+            "description": "<p>List of cursos.</p>"
           }
         ]
       }
@@ -302,8 +314,8 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/cuadernos/index.js",
-    "groupTitle": "Cuadernos",
+    "filename": "src/api/cursos/index.js",
+    "groupTitle": "Cursos",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -353,10 +365,10 @@
   },
   {
     "type": "get",
-    "url": "/cuadernos/:id",
-    "title": "Retrieve cuadernos",
-    "name": "RetrieveCuadernos",
-    "group": "Cuadernos",
+    "url": "/cursos/:id",
+    "title": "Retrieve cursos",
+    "name": "RetrieveCursos",
+    "group": "Cursos",
     "success": {
       "fields": {
         "Success 200": [
@@ -364,8 +376,8 @@
             "group": "Success 200",
             "type": "Object",
             "optional": false,
-            "field": "cuadernos",
-            "description": "<p>Cuadernos's data.</p>"
+            "field": "cursos",
+            "description": "<p>Cursos's data.</p>"
           }
         ]
       }
@@ -384,21 +396,21 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "404",
-            "description": "<p>Cuadernos not found.</p>"
+            "description": "<p>Cursos not found.</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/cuadernos/index.js",
-    "groupTitle": "Cuadernos"
+    "filename": "src/api/cursos/index.js",
+    "groupTitle": "Cursos"
   },
   {
     "type": "put",
-    "url": "/cuadernos/:id",
-    "title": "Update cuadernos",
-    "name": "UpdateCuadernos",
-    "group": "Cuadernos",
+    "url": "/cursos/:id",
+    "title": "Update cursos",
+    "name": "UpdateCursos",
+    "group": "Cursos",
     "permission": [
       {
         "name": "user",
@@ -419,14 +431,26 @@
           {
             "group": "Parameter",
             "optional": false,
-            "field": "nombre",
-            "description": "<p>Cuadernos's nombre.</p>"
+            "field": "name",
+            "description": "<p>Cursos's name.</p>"
           },
           {
             "group": "Parameter",
             "optional": false,
-            "field": "tipo",
-            "description": "<p>Cuadernos's tipo.</p>"
+            "field": "description",
+            "description": "<p>Cursos's description.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Cursos's date.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "user",
+            "description": "<p>Cursos's user.</p>"
           }
         ]
       }
@@ -438,8 +462,8 @@
             "group": "Success 200",
             "type": "Object",
             "optional": false,
-            "field": "cuadernos",
-            "description": "<p>Cuadernos's data.</p>"
+            "field": "cursos",
+            "description": "<p>Cursos's data.</p>"
           }
         ]
       }
@@ -458,7 +482,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "404",
-            "description": "<p>Cuadernos not found.</p>"
+            "description": "<p>Cursos not found.</p>"
           },
           {
             "group": "Error 4xx",
@@ -470,8 +494,8 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/cuadernos/index.js",
-    "groupTitle": "Cuadernos"
+    "filename": "src/api/cursos/index.js",
+    "groupTitle": "Cursos"
   },
   {
     "type": "post",
@@ -988,6 +1012,350 @@
     "groupTitle": "User"
   },
   {
+    "type": "post",
+    "url": "/userTakeCourses",
+    "title": "Create user take course",
+    "name": "CreateUserTakeCourse",
+    "group": "UserTakeCourse",
+    "permission": [
+      {
+        "name": "user",
+        "title": "User access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>user access token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "matriculaEstudiante",
+            "description": "<p>User take course's matriculaEstudiante.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "nameCurso",
+            "description": "<p>User take course's nameCurso.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "userTakeCourse",
+            "description": "<p>User take course's data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>User take course not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>user access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/userTakeCourse/index.js",
+    "groupTitle": "UserTakeCourse"
+  },
+  {
+    "type": "delete",
+    "url": "/userTakeCourses/:id",
+    "title": "Delete user take course",
+    "name": "DeleteUserTakeCourse",
+    "group": "UserTakeCourse",
+    "permission": [
+      {
+        "name": "user",
+        "title": "User access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>user access token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 204": [
+          {
+            "group": "Success 204",
+            "optional": false,
+            "field": "204",
+            "description": "<p>No Content.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>User take course not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>user access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/userTakeCourse/index.js",
+    "groupTitle": "UserTakeCourse"
+  },
+  {
+    "type": "get",
+    "url": "/userTakeCourses/:id",
+    "title": "Retrieve user take course",
+    "name": "RetrieveUserTakeCourse",
+    "group": "UserTakeCourse",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "userTakeCourse",
+            "description": "<p>User take course's data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>User take course not found.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/userTakeCourse/index.js",
+    "groupTitle": "UserTakeCourse"
+  },
+  {
+    "type": "get",
+    "url": "/userTakeCourses",
+    "title": "Retrieve user take courses",
+    "name": "RetrieveUserTakeCourses",
+    "group": "UserTakeCourse",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "userTakeCourses",
+            "description": "<p>List of user take courses.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/userTakeCourse/index.js",
+    "groupTitle": "UserTakeCourse",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "q",
+            "description": "<p>Query to search.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "size": "1..30",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "size": "1..100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "30",
+            "description": "<p>Amount of returned items.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "sort",
+            "defaultValue": "-createdAt",
+            "description": "<p>Order of returned items.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "fields",
+            "description": "<p>Fields to be returned.</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "put",
+    "url": "/userTakeCourses/:id",
+    "title": "Update user take course",
+    "name": "UpdateUserTakeCourse",
+    "group": "UserTakeCourse",
+    "permission": [
+      {
+        "name": "user",
+        "title": "User access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>user access token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "matriculaEstudiante",
+            "description": "<p>User take course's matriculaEstudiante.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "nameCurso",
+            "description": "<p>User take course's nameCurso.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "userTakeCourse",
+            "description": "<p>User take course's data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>User take course not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>user access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/userTakeCourse/index.js",
+    "groupTitle": "UserTakeCourse"
+  },
+  {
     "type": "put",
     "url": "/users/:id/password",
     "title": "Update password",
@@ -1096,8 +1464,8 @@
             "group": "Parameter",
             "type": "String",
             "optional": true,
-            "field": "picture",
-            "description": "<p>User's picture.</p>"
+            "field": "email",
+            "description": "<p>User's email.</p>"
           }
         ]
       }

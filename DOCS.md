@@ -6,11 +6,11 @@
 	- [Authenticate](#authenticate)
 	- [Authenticate with Facebook](#authenticate-with-facebook)
 	
-- [Cuadernos](#cuadernos)
-	- [Create cuadernos](#create-cuadernos)
-	- [Delete cuadernos](#delete-cuadernos)
-	- [Retrieve cuadernos](#retrieve-cuadernos)
-	- [Update cuadernos](#update-cuadernos)
+- [Cursos](#cursos)
+	- [Create cursos](#create-cursos)
+	- [Delete cursos](#delete-cursos)
+	- [Retrieve cursos](#retrieve-cursos)
+	- [Update cursos](#update-cursos)
 	
 - [PasswordReset](#passwordreset)
 	- [Send email](#send-email)
@@ -25,6 +25,13 @@
 	- [Retrieve users](#retrieve-users)
 	- [Update password](#update-password)
 	- [Update user](#update-user)
+	
+- [UserTakeCourse](#usertakecourse)
+	- [Create user take course](#create-user-take-course)
+	- [Delete user take course](#delete-user-take-course)
+	- [Retrieve user take course](#retrieve-user-take-course)
+	- [Retrieve user take courses](#retrieve-user-take-courses)
+	- [Update user take course](#update-user-take-course)
 	
 
 
@@ -61,28 +68,13 @@
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Facebook user accessToken.</p>							|
 
-# Cuadernos
+# Cursos
 
-## Create cuadernos
-
-
-
-	POST /cuadernos
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| nombre			| 			|  <p>Cuadernos's nombre.</p>							|
-| tipo			| 			|  <p>Cuadernos's tipo.</p>							|
-
-## Delete cuadernos
+## Create cursos
 
 
 
-	DELETE /cuadernos/:id
+	POST /cursos
 
 
 ### Parameters
@@ -90,12 +82,29 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
+| name			| 			|  <p>Cursos's name.</p>							|
+| description			| 			|  <p>Cursos's description.</p>							|
+| date			| 			|  <p>Cursos's date.</p>							|
+| user			| 			|  <p>Cursos's user.</p>							|
 
-## Retrieve cuadernos
+## Delete cursos
 
 
 
-	GET /cuadernos
+	DELETE /cursos/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+
+## Retrieve cursos
+
+
+
+	GET /cursos
 
 
 ### Parameters
@@ -108,11 +117,11 @@
 | sort			| String[]			| **optional** <p>Order of returned items.</p>							|
 | fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
 
-## Update cuadernos
+## Update cursos
 
 
 
-	PUT /cuadernos/:id
+	PUT /cursos/:id
 
 
 ### Parameters
@@ -120,8 +129,10 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| nombre			| 			|  <p>Cuadernos's nombre.</p>							|
-| tipo			| 			|  <p>Cuadernos's tipo.</p>							|
+| name			| 			|  <p>Cursos's name.</p>							|
+| description			| 			|  <p>Cursos's description.</p>							|
+| date			| 			|  <p>Cursos's date.</p>							|
+| user			| 			|  <p>Cursos's user.</p>							|
 
 # PasswordReset
 
@@ -261,6 +272,75 @@
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>User access_token.</p>							|
 | name			| String			| **optional** <p>User's name.</p>							|
-| picture			| String			| **optional** <p>User's picture.</p>							|
+| email			| String			| **optional** <p>User's email.</p>							|
+
+# UserTakeCourse
+
+## Create user take course
+
+
+
+	POST /userTakeCourses
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+| matriculaEstudiante			| 			|  <p>User take course's matriculaEstudiante.</p>							|
+| nameCurso			| 			|  <p>User take course's nameCurso.</p>							|
+
+## Delete user take course
+
+
+
+	DELETE /userTakeCourses/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+
+## Retrieve user take course
+
+
+
+	GET /userTakeCourses/:id
+
+
+## Retrieve user take courses
+
+
+
+	GET /userTakeCourses
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| q			| String			| **optional** <p>Query to search.</p>							|
+| page			| Number			| **optional** <p>Page number.</p>							|
+| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
+| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
+| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
+
+## Update user take course
+
+
+
+	PUT /userTakeCourses/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+| matriculaEstudiante			| 			|  <p>User take course's matriculaEstudiante.</p>							|
+| nameCurso			| 			|  <p>User take course's nameCurso.</p>							|
 
 

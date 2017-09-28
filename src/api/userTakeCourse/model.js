@@ -1,10 +1,10 @@
 import mongoose, { Schema } from 'mongoose'
 
 const userTakeCourseSchema = new Schema({
-	matriculaEstudiante: {
+	idEstudiante: {
 		type: String
 	},
-	nameCurso: {
+	idCurso: {
 		type: String
 	}
 }, {
@@ -16,8 +16,8 @@ userTakeCourseSchema.methods = {
 		const view = {
 			// simple view
 			id: this.id,
-			matriculaEstudiante: this.matriculaEstudiante,
-			nameCurso: this.nameCurso,
+			idEstudiante: this.idEstudiante,
+			idCurso: this.idCurso,
 			createdAt: this.createdAt,
 			updatedAt: this.updatedAt
 		}

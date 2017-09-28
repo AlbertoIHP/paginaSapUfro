@@ -7,7 +7,8 @@ import { schema } from './model'
 export UserTakeCourse, { schema } from './model'
 
 const router = new Router()
-const { matriculaEstudiante, nameCurso } = schema.tree
+const { idEstudiante, idCurso } = schema.tree
+var cuerpoConsulta = { idEstudiante, idCurso };
 
 /**
  * @api {post} /userTakeCourses Create user take course
@@ -23,8 +24,7 @@ const { matriculaEstudiante, nameCurso } = schema.tree
  * @apiError 401 user access only.
  */
 router.post('/',
-	token({ required: true }),
-	body({ matriculaEstudiante, nameCurso }),
+	body(cuerpoConsulta),
 	create)
 
 /**
@@ -36,7 +36,6 @@ router.post('/',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
 router.get('/',
-  token({required: true}),
 	query(),
 	index)
 
@@ -67,7 +66,7 @@ router.get('/:id',
  */
 router.put('/:id',
 	token({ required: true }),
-	body({ matriculaEstudiante, nameCurso }),
+	body(cuerpoConsulta),
 	update)
 
 /**

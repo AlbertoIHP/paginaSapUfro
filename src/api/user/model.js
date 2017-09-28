@@ -23,11 +23,13 @@ const userSchema = new Schema({
 	},
   lastname: {
 	type: String,
-	required: true
+	required: true,
+  trim: true
   },
   profession:{
 	type: String,
-	required: true
+	required: true,
+  trim: true
   },
 	password: {
 		type: String,
@@ -38,7 +40,7 @@ const userSchema = new Schema({
 		type: String,
 		index: true,
 		trim: true,
-	required: true
+	  required: true
 	},
 	services: {
 		facebook: String
@@ -82,15 +84,23 @@ userSchema.pre('save', function (next) {
 })
 
 userSchema.methods = {
+
 	view (full) {
-		let view = {}
-		let fields = ['id', 'name', 'picture']
+		let view =
+    {
+	   }
 
-		if (full) {
-			fields = [...fields, 'email', 'createdAt']
-		}
+    let fields = ['id', 'name', 'picture']
 
-		fields.forEach((field) => { view[field] = this[field] })
+    if (full) {
+      fields = [...fields, 'lastname', 'profession', 'matricula', 'email']
+    }
+
+
+
+		fields.forEach((field) => {
+	  view[field] = this[field]
+	})
 
 		return view
 	},
@@ -103,16 +113,18 @@ userSchema.methods = {
 userSchema.statics = {
 	roles,
 
-	createFromService ({ service, id, email, name, picture }) {
+	createFromService ({ service, id, email, name, picture, profession, lastname }) {
 		return this.findOne({ $or: [{ [`services.${service}`]: id }, { email }] }).then((user) => {
 			if (user) {
 				user.services[service] = id
 				user.name = name
 				user.picture = picture
+		    user.profession = profession
+		    user.lastname = lastname
 				return user.save()
 			} else {
 				const password = randtoken.generate(16)
-				return this.create({ services: { [service]: id }, email, password, name, picture })
+				return this.create({ services: { [service]: id }, email, password, name, picture, profession, lastname })
 			}
 		})
 	}

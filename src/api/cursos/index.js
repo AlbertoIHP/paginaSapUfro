@@ -1,14 +1,14 @@
 import { Router } from 'express'
 import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
-import { token } from '../../services/passport'
+import { password as passwordAuth, master, token } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
 export Cursos, { schema } from './model'
 
 const router = new Router()
-const { name, description, date, user, place } = schema.tree
-const estructuraPeticion = { name, description, date, user, place } ;
+const { name, description, date , place } = schema.tree
+const estructuraPeticion = { name, description, date, place } ;
 
 /**
  * @api {post} /cursos Create cursos
@@ -39,7 +39,6 @@ router.post('/',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
 router.get('/',
-  token({required: true}),
 	query(),
 	index)
 

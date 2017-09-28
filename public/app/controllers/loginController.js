@@ -4,108 +4,117 @@ var home = angular.module('mainModule');
 
 
 //Se crea un controlador con su funcion callback
-home.controller('loginController', ['$scope','$resource','localStorageService', loginController]);
+home.controller('loginController', ['$location', '$scope','$resource','localStorageService', loginController]);
 
 
 
 //Se definen todos aquellos elemtentos que seran utilizados por el nodo del DOM que
 //tenga la instancia de este controlador
-function loginController($scope, $resource, localStorageService){
+function loginController($location, $scope, $resource, localStorageService){
 
-  $scope.abrirModal = function(){
-    $('#modalConversacion').modal('show');
-  }
+  $('.ui.dropdown')
+    .dropdown()
+  ;
 
-  $scope.asd = function(){
-    $('#modalRegistro').modal('show');
+	$scope.abrirModal = function(){
+		$('#modalConversacion').modal('show');
+	}
 
-  }
+	$scope.asd = function(){
+		$('#modalRegistro').modal('show');
 
-
-  $scope.registrarme = function()
-  {
-      if($scope.nuevoUsuario.matricula === "" || $scope.nuevoUsuario.email=== "" || $scope.nuevoUsuario.lastname === "" || $scope.nuevoUsuario.profession === "" || $scope.nuevoUsuario.password=== "" || $scope.nuevoUsuario.name === ""){
-
-     $('.message .close').closest('.message').transition('fade up');
-     setTimeout(function(){ $('.message .close').closest('.message').transition('fade down');}, 2000);
-   }else{
-
-    $scope.registrarUsuario();
-   }
-  }
-
-  $scope.login = {email: '', password: ''};
-  $scope.nuevoUsuario = { access_token: 'bebote34', matricula: '' , email: '', lastname: '', profession: '', password: '', name: ''};
+	}
 
 
-  $scope.registrarUsuario = function(){
+	$scope.registrarme = function()
+	{
+	 if($scope.nuevoUsuario.matricula === "" || $scope.nuevoUsuario.email=== "" || $scope.nuevoUsuario.lastname === "" || $scope.nuevoUsuario.profession === "" || $scope.nuevoUsuario.password=== "" || $scope.nuevoUsuario.name === ""){
+
+		 $('.message .close').closest('.message').transition('fade up');
+		 setTimeout(function(){ $('.message .close').closest('.message').transition('fade down');}, 2000);
+	 }else{
+
+		$scope.registrarUsuario();
+	 }
+	}
+
+	$scope.login = {email: '', password: ''};
+	$scope.nuevoUsuario = { access_token: 'bebote34', matricula: '' , email: '', lastname: '', profession: '', password: '', name: ''};
 
 
-    var contentType = 'application/json';
-
-    var auth = $resource('http://localhost:9000/users', {},{
-    post: {
-      method: 'POST',
-      headers: {
-        'Content-Type' : contentType
-      }
-    }
-    });
-
-    var peticion = auth.post($scope.nuevoUsuario);
-
-    $scope.respuesta = {};
-
-    peticion.$promise.then(function (result) {
-    console.log(result);
-    $scope.login.email = $scope.nuevoUsuario.email;
-    $scope.login.password = $scope.nuevoUsuario.password;
-    $('#modalRegistro').modal('hide');
-     $scope.nuevoUsuario = { matricula: '' , email: '', lastname: '', profession: '', password: '', name: ''};
-    });
+	$scope.registrarUsuario = function(){
 
 
+		var contentType = 'application/json';
+
+		var auth = $resource('http://localhost:4200/users', {},{
+		post: {
+			method: 'POST',
+			headers: {
+				'Content-Type' : contentType
+			}
+		}
+		});
+
+		var peticion = auth.post($scope.nuevoUsuario);
+
+		$scope.respuesta = {};
+
+		peticion.$promise.then(function (result) {
+		console.log(result);
+		$scope.login.email = $scope.nuevoUsuario.email;
+		$scope.login.password = $scope.nuevoUsuario.password;
+		$('#modalRegistro').modal('hide');
+		 $scope.nuevoUsuario = { matricula: '' , email: '', lastname: '', profession: '', password: '', name: ''};
+		});
 
 
-  }
 
 
-  $scope.iniciarSesion = function(){
-    if($scope.login.email ==="" || $scope.login.password === ""){
-      $('#error').closest('.message').transition('fade up');
-      setTimeout(function(){ $('#error').closest('.message').transition('fade down');}, 2000);
+	}
 
-    }else{
-      $('#cargando').closest('.message').transition('fade up');
-       setTimeout(function(){ $('#cargando').closest('.message').transition('fade down');}, 2000);
-      console.log($scope.login);
 
-      var authorization = 'Basic ' + encode($scope.login.email+':'+$scope.login.password);
-      var contentType = 'application/json';
-      var accessToken = {access_token: 'bebote34'}
+	$scope.iniciarSesion = function(){
+		if($scope.login.email ==="" || $scope.login.password === ""){
+			$('#error').closest('.message').transition('fade up');
+			setTimeout(function(){ $('#error').closest('.message').transition('fade down');}, 2000);
 
-      var auth = $resource('http://localhost:9000/auth', {},{
-      post: {
-        method: 'POST',
-        headers: {
-          'Content-Type' : contentType,
-          'Authorization' : authorization
-        }
-      }
-      });
+		}else{
+			$('#cargando').closest('.message').transition('fade up');
+			 setTimeout(function(){ $('#cargando').closest('.message').transition('fade down');}, 2000);
+			console.log($scope.login);
 
-      var peticion = auth.post(accessToken);
+			var authorization = 'Basic ' + encode($scope.login.email+':'+$scope.login.password);
+			var contentType = 'application/json';
+			var accessToken = {access_token: 'bebote34'}
 
-      $scope.respuesta = {};
+			var auth = $resource('http://localhost:4200/auth', {},{
+			post: {
+				method: 'POST',
+				headers: {
+					'Content-Type' : contentType,
+					'Authorization' : authorization
+				}
+			}
+			});
 
-      peticion.$promise.then(function (result) {
-        $scope.respuesta = result;
-        localStorageService.set('currentUser', JSON.stringify($scope.respuesta.user));
-        localStorageService.set('currentToken', JSON.stringify($scope.respuesta.token));
-      });
+			var peticion = auth.post(accessToken);
 
-    };
-    }
+			$scope.respuesta = {};
+
+			peticion.$promise.then(function (result) {
+				$scope.respuesta = result;
+		console.log($scope.respuesta);
+
+		localStorageService.set('currentToken', JSON.stringify($scope.respuesta.token));
+				localStorageService.set('currentUser', JSON.stringify($scope.respuesta.user));
+
+		$scope.$emit('usuarioLogeado', {message:$scope.respuesta.token});
+		$location.path("/");
+			});
+
+		};
+		}
 
 
 
@@ -151,7 +160,7 @@ function encode(input){
 }
 
 function decode(input){
-   var keyStr = 'ABCDEFGHIJKLMNOP' +
+	 var keyStr = 'ABCDEFGHIJKLMNOP' +
 			'QRSTUVWXYZabcdef' +
 			'ghijklmnopqrstuv' +
 			'wxyz0123456789+/' +

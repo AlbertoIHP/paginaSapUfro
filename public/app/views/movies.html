@@ -1,15 +1,43 @@
-
-<div class="container">
-	<h2>Controlador1</h2> <br>
-<div class="row"  ng-controller="moviesController">
-
-	<form ng-submit="hello()">
-		<input type="text" required ng-model="home.username" />
-		<input type="text" required ng-model="home.password" />
-		<button type="submit" class="btn btn-primary">Click</button>
-	</form>
+<div class="container-fluid" style="text-align: center">
+  <h1>Cursos disponibles</h1>
 
 </div>
+<br>
+
+<div class="ui three column grid " style="width: 100%" ng-controller="homeController">
+
+
+
+
+		<div ng-repeat="n in cursos"  class="column">
+				<div  class="ui card">
+
+					<div class="image">
+						<img src="assets/sap.png">
+					</div>
+
+					<div class="content">
+						<a class="header">{{n.name}} </a>
+						<div class="meta">
+							<div class="date">Fecha: {{n.date}}</div>
+							 <div class="date">Lugar: {{n.place}}</div>
+						</div>
+						<div class="description">
+							{{n.description}}
+						</div>
+					</div>
+
+						<div ng-if="n.activated" ng-click="inscribirCurso(n.id)" class="ui bottom attached button green">
+							<i class="add icon"></i>
+							Inscribirme
+						</div>
+
+						<div ng-if="!n.activated" ng-click="desincribirCurso(n)" class="ui bottom attached button red">
+							<i class="delete icon"></i>
+							Desinscribirme
+						</div>
+				</div>
+		</div>
 
 
 
