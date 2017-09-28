@@ -36,7 +36,8 @@ function homeController($location, $scope, localStorageService, $resource){
 
 			peticion.$promise.then(function (result) {
 				$scope.cursos = result;
-
+        console.log("Los cursos traidos desde la BD "+JSON.stringify($scope.cursos));
+        $scope.obtenerCursosTomados();
 			});
 		}
 
@@ -50,6 +51,7 @@ function homeController($location, $scope, localStorageService, $resource){
 			peticion.$promise.then(function (result) {
 				$scope.cursosTomados = result;
 				localStorageService.set('cursosTomados', $scope.cursosTomados);
+        console.log("Los cursos tomados son "+JSON.stringify($scope.cursosTomados));
 				filtrarCursos();
 			});
 
@@ -62,7 +64,6 @@ function homeController($location, $scope, localStorageService, $resource){
 			$scope.cursos = {};
 			$scope.cursosTomados = {}
 			$scope.obtenerCursos();
-      setTimeout($scope.obtenerCursosTomados(), 2000);
 
 		}
 
@@ -98,35 +99,41 @@ function homeController($location, $scope, localStorageService, $resource){
 		function filtrarCursos(){
 			var cursosBorrar = [];
 
-			for(let i = 0; i < $scope.cursosTomados.length; i++)
-			{
-				console.log($scope.cursosTomados[i]);
-				 if($scope.cursosTomados[i].idEstudiante === $scope.usuario.id)
-					{
-						cursosBorrar.push($scope.cursosTomados[i].idCurso);
-					}
+        console.log("Estamos filtrando sus cursos");
+        console.log("Sus cursos tomados son : "+JSON.stringify($scope.cursosTomados));
 
-			}
-
-			$scope.misCursos = [];
-
-
-			for(let i = 0; i <$scope.cursos.length; i++)
-      {
-				for(let j=0; j<cursosBorrar.length; j ++)
+        for(let i = 0; i < $scope.cursosTomados.length; i++)
         {
+           if($scope.cursosTomados[i].idEstudiante === $scope.usuario.id)
+            {
+              cursosBorrar.push($scope.cursosTomados[i].idCurso);
+            }
 
-					if($scope.cursos[i].id === cursosBorrar[j])
-					{
-						console.log("El curso: "+$scope.cursos[i].name+" debe ser borrado");
-						$scope.misCursos.push($scope.cursos[i]);
-						$scope.cursos[i].activated = false;
+        }
 
-					}
-				}
-			}
+        $scope.misCursos = [];
 
-			console.log($scope.misCursos);
+        console.log("Ahora estamos comparando con los cursos disponibles para sacarlos de los disponibles");
+        console.log("Los cursos totales son: "+JSON.stringify($scope.cursos));
+        for(let i = 0; i <$scope.cursos.length; i++)
+      {
+          for(let j=0; j<cursosBorrar.length; j ++)
+      {
+
+            if($scope.cursos[i].id === cursosBorrar[j])
+            {
+              console.log("El curso: "+$scope.cursos[i].name+" debe ser borrado");
+              $scope.misCursos.push($scope.cursos[i]);
+              $scope.cursos[i].activated = false;
+
+            }
+          }
+        }
+
+        console.log("Hemos determinado que sus cursos son: "+$scope.misCursos);
+
+
+
 
 		}
 
