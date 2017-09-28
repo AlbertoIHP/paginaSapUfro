@@ -13,7 +13,7 @@ home.controller('loginController', ['$location', '$scope','$resource','localStor
 function loginController($location, $scope, $resource, localStorageService){
 
   $('.ui.dropdown')
-    .dropdown()
+	.dropdown()
   ;
 
 	$scope.abrirModal = function(){
@@ -47,7 +47,7 @@ function loginController($location, $scope, $resource, localStorageService){
 
 		var contentType = 'application/json';
 
-		var auth = $resource('http://localhost:4200/users', {},{
+		var auth = $resource('https://sapufro.herokuapp.com/users', {},{
 		post: {
 			method: 'POST',
 			headers: {
@@ -88,7 +88,7 @@ function loginController($location, $scope, $resource, localStorageService){
 			var contentType = 'application/json';
 			var accessToken = {access_token: 'bebote34'}
 
-			var auth = $resource('http://localhost:4200/auth', {},{
+			var auth = $resource('https://sapufro.herokuapp.com/auth', {},{
 			post: {
 				method: 'POST',
 				headers: {
