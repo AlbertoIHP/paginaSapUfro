@@ -83,7 +83,7 @@ function loginController($location, $scope, $resource, localStorageService){
 		}else{
 
 			$('#cargando').closest('.message').transition('fade up');
-			 setTimeout(function(){ $('#cargando').closest('.message').transition('fade down');}, 2000);
+			 setTimeout(function(){ $('#cargando').closest('.message').transition('fade down');}, 82347592874598274359);
 			console.log($scope.login);
 
 			var authorization = 'Basic ' + encode($scope.login.email+':'+$scope.login.password);
