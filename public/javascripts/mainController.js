@@ -36,7 +36,7 @@ function controladorRaiz($location, $scope,$resource, localStorage)
 			$scope.logeado = false;
 			localStorage.remove('currentUser');
 			localStorage.remove('currentToken');
-      localStorage.remove('cursosTomados');
+	  localStorage.remove('cursosTomados');
 			$location.path("/login");
 			$scope.usuario = {access_token: '', id:"", name :"",picture : "",email:"", lastname: '', profession: ''};
 			if(abierto){
@@ -101,7 +101,7 @@ function controladorRaiz($location, $scope,$resource, localStorage)
 
 			var contentType = 'application/json';
 
-			var auth = $resource('http://localhost:4200/users/'+$scope.usuario.id, {},{
+			var auth = $resource('https://sapufro.herokuapp.com/users/'+$scope.usuario.id, {},{
 			put: {
 				method: 'PUT',
 				headers: {
