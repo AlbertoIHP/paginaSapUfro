@@ -1,92 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="mainModule">
-  <head>
-    <!-- Standard Meta -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  	<title>SAP UFRO</title>
-  	<script type="text/javascript" src="javascripts/angular.min.js"></script>
-  	<script type="text/javascript" src="javascripts/angular-route.min.js"></script>
+        <title>SAP UFRO</title>
+        <script type="text/javascript" src="javascripts/angular.min.js"></script>
+        <script type="text/javascript" src="javascripts/angular-route.min.js"></script>
 
-    <script type="text/javascript" src="javascripts/angular-local-storage.min.js"></script>
-    <script type="text/javascript" src="javascripts/angular-resource.min.js"></script>
-
-
-    <script type="text/javascript" src="javascripts/mainController.js"></script>
-  	<script type="text/javascript" src="app/controllers/homeController.js"></script>
-  	<script type="text/javascript" src="app/controllers/moviesController.js"></script>
-  	<script type="text/javascript" src="app/controllers/loginController.js"></script>
-
-  	<script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-
-  	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-
-  </head>
+        <script type="text/javascript" src="javascripts/angular-local-storage.min.js"></script>
+        <script type="text/javascript" src="javascripts/angular-resource.min.js"></script>
 
 
-  <body class="miBody" ng-controller="controladorRaiz" >
+        <script type="text/javascript" src="javascripts/mainController.js"></script>
+        <script type="text/javascript" src="app/controllers/homeController.js"></script>
+        <script type="text/javascript" src="app/controllers/moviesController.js"></script>
+        <script type="text/javascript" src="app/controllers/loginController.js"></script>
+
+        <script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+    </head>
 
 
-
-
-  	<div class="ui fixed inverted menu" ng-if="logeado">
-  		<div class="ui container">
-  			<div class="ui simple dropdown header item">
-  				<img class="logo" src="assets/sap.png">
-  			  <h5 ng-bind="usuario.email"></h5>
-  				<i class="dropdown icon"></i>
-  				<div  class="menu">
-      		  <a  ng-click="irCursos()" class="item">Cursos</a>
-      		  <a  ng-click="openSide()" class="item">Editar Perfil</a>
-      		  <a  ng-click="cerrarSesion()" class="item">Cerrar Sesion</a>
-  				</div>
-  			</div>
-      </div>
-  	</div>
-
-
-  <div ng-if="logeado" class="ui sidebar inverted vertical menu" style="margin-top: 90px !important;">
-  	<a class="item">
-  	 <img class="ui medium circular image" src="assets/user.png">
-  	</a>
-
-  	<a class="item">
-  	  <label for="">Nombre</label>
-  	  <div class="ui input">
-  		<input type="text" placeholder="Nombre de usuario" ng-model="usuario.name">
-  	  </div>
-  	</a>
-
-  	<a class="item">
-  	  <label for="">Apellido</label>
-  	  <div class="ui input">
-  		<input type="text" placeholder="Nombre de usuario" ng-model="usuario.lastname">
-  	  </div>
-  	</a>
-
-  	<a class="item">
-  	  <label for="">Carrera</label>
-  	  <div class="ui input">
-  		<input type="text" placeholder="Nombre de usuario" ng-model="usuario.profession">
-  	  </div>
-  	</a>
-
-  	<a class="item">
-  	  <button ng-click="actualizarPerfil()" class="ui inverted orange button" style="width: 100%">Actualizar</button>
-  	</a>
-
-  </div>
+    <body class="miBody" ng-controller="controladorRaiz" >
 
 
 
-    <div class="pusher" ng-click="cerrarNav()" style="margin-top: 90px !important;">
-    	 <div class="ui main text container" ng-view >
 
-       </div>
+        <div class="ui fixed inverted menu" >
+            <div class="ui container" >
+                <div class="ui simple dropdown header item">
+                    <img class="logo" src="assets/sap.png">
+                    <h5 ng-bind="usuario.email"></h5>
+                    <i class="dropdown icon"></i>
+                    <div  class="menu">
+                        <a ng-if="logeado"  ng-click="irCursos()" class="item">Cursos</a>
+                        <a  ng-if="logeado" ng-click="openSide()" class="item">Editar Perfil</a>
+                        <a ng-if="logeado"  ng-click="cerrarSesion()" class="item">Cerrar Sesion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div ng-if="logeado" class="ui sidebar inverted vertical menu" style="margin-top: 90px !important;">
+        <a class="item">
+         <img class="ui medium circular image" src="assets/user.png">
+        </a>
+
+        <a class="item">
+            <label for="">Nombre</label>
+            <div class="ui input">
+            <input type="text" placeholder="Nombre de usuario" ng-model="usuario.name">
+            </div>
+        </a>
+
+        <a class="item">
+            <label for="">Apellido</label>
+            <div class="ui input">
+            <input type="text" placeholder="Nombre de usuario" ng-model="usuario.lastname">
+            </div>
+        </a>
+
+        <a class="item">
+            <label for="">Carrera</label>
+            <div class="ui input">
+            <input type="text" placeholder="Nombre de usuario" ng-model="usuario.profession">
+            </div>
+        </a>
+
+        <a class="item">
+            <button ng-click="actualizarPerfil()" class="ui inverted orange button" style="width: 100%">Actualizar</button>
+        </a>
+
     </div>
-  </body>
+
+
+
+        <div class="pusher" ng-click="cerrarNav()" style="margin-top: 90px !important;">
+
+             <div class="ui main text container" ng-view >
+
+             </div>
+        </div>
+    </body>
 </html>

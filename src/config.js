@@ -23,7 +23,7 @@ const config = {
 	all: {
 		env: process.env.NODE_ENV || 'development',
 		root: path.join(__dirname, '..'),
-		port: process.env.PORT || 4200,
+		port: process.env.PORT || 4000,
 		ip: process.env.IP || '0.0.0.0',
 		defaultEmail: 'no-reply@ejemplo.com',
 		sendgridKey: requireProcessEnv('SENDGRID_KEY'),

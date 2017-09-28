@@ -87,14 +87,14 @@ userSchema.methods = {
 
 	view (full) {
 		let view =
-    {
+	{
 	   }
 
-    let fields = ['id', 'name', 'picture']
+	let fields = ['id', 'name', 'picture']
 
-    if (full) {
-      fields = [...fields, 'lastname', 'profession', 'matricula', 'email']
-    }
+	if (full) {
+	  fields = [...fields, 'lastname', 'profession', 'matricula', 'email']
+	}
 
 
 
@@ -119,8 +119,8 @@ userSchema.statics = {
 				user.services[service] = id
 				user.name = name
 				user.picture = picture
-		    user.profession = profession
-		    user.lastname = lastname
+			user.profession = profession
+			user.lastname = lastname
 				return user.save()
 			} else {
 				const password = randtoken.generate(16)

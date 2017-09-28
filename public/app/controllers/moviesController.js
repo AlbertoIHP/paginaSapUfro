@@ -33,10 +33,10 @@ function homeController($location, $scope, localStorageService, $resource){
 
 			var peticion = auth.query();
 
-			$scope.respuesta = {};
 
 			peticion.$promise.then(function (result) {
 				$scope.cursos = result;
+
 			});
 		}
 
@@ -46,7 +46,6 @@ function homeController($location, $scope, localStorageService, $resource){
 
 			var peticion = auth.query();
 
-			$scope.respuesta = {};
 
 			peticion.$promise.then(function (result) {
 				$scope.cursosTomados = result;
@@ -63,7 +62,8 @@ function homeController($location, $scope, localStorageService, $resource){
 			$scope.cursos = {};
 			$scope.cursosTomados = {}
 			$scope.obtenerCursos();
-			$scope.obtenerCursosTomados();
+      setTimeout($scope.obtenerCursosTomados(), 2000);
+
 		}
 
 
@@ -98,8 +98,6 @@ function homeController($location, $scope, localStorageService, $resource){
 		function filtrarCursos(){
 			var cursosBorrar = [];
 
-			console.log($scope.cursosTomados);
-
 			for(let i = 0; i < $scope.cursosTomados.length; i++)
 			{
 				console.log($scope.cursosTomados[i]);
@@ -112,10 +110,11 @@ function homeController($location, $scope, localStorageService, $resource){
 
 			$scope.misCursos = [];
 
-			var cursosDisponibles = [];
 
-			for(let i = 0; i <$scope.cursos.length; i++){
-				for(let j=0; j<cursosBorrar.length; j ++){
+			for(let i = 0; i <$scope.cursos.length; i++)
+      {
+				for(let j=0; j<cursosBorrar.length; j ++)
+        {
 
 					if($scope.cursos[i].id === cursosBorrar[j])
 					{

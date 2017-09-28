@@ -6,7 +6,6 @@ app = main.config(rutas);
 
 app.controller('controladorRaiz',['$location', '$scope','$resource','localStorageService', controladorRaiz]);
 
-app.service('informacionGeneral', funcionServicio);
 
 
 function rutas($routeProvider)
@@ -36,9 +35,9 @@ function controladorRaiz($location, $scope,$resource, localStorage)
 			$scope.logeado = false;
 			localStorage.remove('currentUser');
 			localStorage.remove('currentToken');
-	  localStorage.remove('cursosTomados');
+		  localStorage.remove('cursosTomados');
 			$location.path("/login");
-			$scope.usuario = {access_token: '', id:"", name :"",picture : "",email:"", lastname: '', profession: ''};
+			$scope.usuario = {access_token: '', id:"", name :"",picture : "",email:"Bienvenido", lastname: '', profession: ''};
 			if(abierto){
 				$scope.openSide();
 			}
@@ -49,22 +48,20 @@ function controladorRaiz($location, $scope,$resource, localStorage)
 
 		if(localStorage.get('currentUser')){
 			$scope.logeado = true;
-			$scope.usuario = {access_token:'', id:"", name :"",picture : "",email:"", lastname: '', profession: ''};
+			$scope.usuario = {access_token:'', id:"", name :"",picture : "",email:"Bienvenido", lastname: '', profession: ''};
 			actualizarInfo();
 			$location.path("/");
 
 		}else{
 			$scope.cerrarSesion();
-			$scope.usuario = {access_token: '', id:"", name :"",picture : "",email:"", lastname: '', profession: ''};
+			$scope.usuario = {access_token: '', id:"", name :"",picture : "",email:"Bienvenido", lastname: '', profession: ''};
 		}
 
 		$scope.$on('usuarioLogeado', function(event, data)
 		{
 			$scope.usuario.access_token =  data.message;
 			$scope.logeado = true;
-			console.log($scope.usuario );
 			actualizarInfo();
-			console.log($scope.usuario );
 
 
 		})
@@ -112,8 +109,6 @@ function controladorRaiz($location, $scope,$resource, localStorage)
 
 			var peticion = auth.put($scope.usuario);
 
-			$scope.respuesta = {};
-
 			peticion.$promise.then(function (result) {
 
 			if(abierto){
@@ -132,21 +127,3 @@ function controladorRaiz($location, $scope,$resource, localStorage)
 
 
 
-// NO SE OCUPA
-function funcionServicio() {
-	var productList = [];
-
-	var addProduct = function(newObj) {
-			productList.push(newObj);
-	};
-
-	var getProducts = function(){
-			return productList;
-	};
-
-	return {
-		addProduct: addProduct,
-		getProducts: getProducts
-	};
-
-}

@@ -7,8 +7,8 @@ import { schema } from './model'
 export Cursos, { schema } from './model'
 
 const router = new Router()
-const { name, description, date , place } = schema.tree
-const estructuraPeticion = { name, description, date, place } ;
+const { name, description, date , place, activated } = schema.tree
+const estructuraPeticion = { name, description, date, place, activated } ;
 
 /**
  * @api {post} /cursos Create cursos
