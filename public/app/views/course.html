@@ -1,0 +1,23 @@
+<div class="container" ng-controller="courseController">
+  <div class="ui one column grid">
+    <div class="column"><h2 class="ui header">{{course.name}}</h2></div>
+  </div>
+  <div class="ui one column grid">
+    <div class="column" style="width = 100%;" >
+      <img class="ui medium rounded image" src="assets/sap.png">
+    </div>
+  </div>
+  <div class="ui one column grid">
+    <div class="column" style="width = 100%;" >
+      <div>Descripcion: {{course.description}}</div>
+      <div>Fecha: {{course.date}}</div>
+      <div>Lugar: {{course.place}}</div>
+      <div>Estado:
+        <a ng-if="!course.activated" class="ui green tag label">Inscrito</a>
+        <a ng-if="course.activated" class="ui red tag label">No Inscrito</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>

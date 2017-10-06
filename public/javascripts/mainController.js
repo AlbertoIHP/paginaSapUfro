@@ -10,10 +10,11 @@ app.controller('controladorRaiz',['$location', '$scope','$resource','localStorag
 
 function rutas($routeProvider)
 {
-	var home = {templateUrl: 'app/views/movies.html'};
+	var home = {templateUrl: 'app/views/home.html'};
 	var login = {templateUrl: 'app/views/login.html'};
+   var course = {templateUrl: 'app/views/course.html'};
 
-	$routeProvider.when('/',home).when('/login',login).otherwise({ redirectTo: '/'});
+	$routeProvider.when('/',home).when('/login',login).when('/course',course).otherwise({ redirectTo: '/'});
 }
 
 
@@ -35,7 +36,8 @@ function controladorRaiz($location, $scope,$resource, localStorage)
 			$scope.logeado = false;
 			localStorage.remove('currentUser');
 			localStorage.remove('currentToken');
-		  localStorage.remove('cursosTomados');
+		   localStorage.remove('cursosTomados');
+         localStorage.remove('currentCourse');
 			$location.path("/login");
 			$scope.usuario = {access_token: '', id:"", name :"",picture : "",email:"Bienvenido", lastname: '', profession: ''};
 			if(abierto){
@@ -123,7 +125,3 @@ function controladorRaiz($location, $scope,$resource, localStorage)
 		}
 
 	}
-
-
-
-
